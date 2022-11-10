@@ -155,18 +155,9 @@ contract Redemptions is PluginUUPSUpgradeable {
         return redeemableTokens;
     }
 
-    /// @notice Checks if the address is a contract.
-    function isContract(address _target) internal view returns (bool) {
-        if (_target == address(0)) {
-            return false;
-        }
-
-        uint256 size;
-        assembly {
-            size := extcodesize(_target)
-        }
-        return size > 0;
-    }
+    /* ====================================================================== //
+                                    INTERNAL FUNCTIONS
+    // ====================================================================== */
 
     /// @notice Approves the Redemption Plugin to spend the token from the DAO.
     /// @param _token The address of the token to approve.
@@ -183,6 +174,19 @@ contract Redemptions is PluginUUPSUpgradeable {
             )
         });
         dao.execute(callId++, actions);
+    }
+
+    /// @notice Checks if the address is a contract.
+    function isContract(address _target) internal view returns (bool) {
+        if (_target == address(0)) {
+            return false;
+        }
+
+        uint256 size;
+        assembly {
+            size := extcodesize(_target)
+        }
+        return size > 0;
     }
 
     /// @notice This empty reserved space is put in place to allow future versions to add new variables without shifting down storage in the inheritance chain (see [OpenZepplins guide about storage gaps](https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps)).
