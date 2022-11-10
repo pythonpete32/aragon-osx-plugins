@@ -6,6 +6,8 @@ coverage.json
 typechain
 docs/generated
 
+deployments
+
 #Hardhat files
 cache
 artifacts
