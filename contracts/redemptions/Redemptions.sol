@@ -57,6 +57,7 @@ contract Redemptions is PluginUUPSUpgradeable {
 
     /// @notice Initializes the plugin.
     /// @param _dao The contract of the associated DAO.
+    /// @param _redemptionToken The token that is used to redeem for other tokens
     /// @param _redeemableTokens The list of redeemable tokens.
     function initialize(
         IDAO _dao,
